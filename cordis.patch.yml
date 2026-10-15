@@ -1,0 +1,7 @@
+# Bundle layer：把本插件自己的一行插进 profile 的 cordis 树。
+# `name` 是包说明符，必须能从 profile 目录解析到 —— 由
+# `dsh plugin add` / 插件市场的「添加插件」自动装配，无需手改任何文件。
+- insert:
+    - id: firefly-spring-skin
+      name: 'dsh-firefly-spring-skin'
+      config: {}

@@ -5,119 +5,120 @@
 
 A Firefly "Spring Missive" theme skin for the DeepSeek Harness web GUI.
 
-![预览](preview/cover.png)
+**浅色 · 春信（晨光）**
 
-> **在线预览（不用装任何东西）**：<https://kang200862.github.io/dsh-firefly-spring-skin/>
+![浅色模式](preview/live-light.png)
 
-## 这是什么 / 现在能做什么
+**深色 · 夜萤（深林）**
 
-形态参考了社区里最热门的
+![深色模式](preview/live-dark.png)
+
+> 上图是**真实 DSH 界面**（不是效果图）—— 用无头浏览器把插件注入到运行中的 DSH 页面里截的。
+
+## 安装
+
+插件市场的「添加插件」支持 Git 地址，直接粘这一行：
+
+```
+github:kang200862/dsh-firefly-spring-skin
+```
+
+或者命令行：
+
+```bash
+dsh plugin --profile <你的profile名> add github:kang200862/dsh-firefly-spring-skin
+```
+
+装完**刷新页面**即可。想改设置或卸载：设置 → 插件 → 本插件。
+
+> 计划发布 npm 包；在那之前 Git 地址就是安装方式。
+
+## 它做了什么
+
+形态参考社区里最热门的
 [`@smalltailqwq/dsh-client-ui-skin-maid-atelier`](https://www.npmjs.com/package/@smalltailqwq/dsh-client-ui-skin-maid-atelier)：
 
 ```
-全幅背景插画  →  半透明玻璃面板  →  立绘压在界面之上  →  花瓣 / 萤火天气层
+春日橱窗背景  →  半透明玻璃面板  →  桌面立绘  →  花瓣 / 萤火
 ```
 
-| | 状态 |
+| | 说明 |
 |---|---|
-| **静态预览样板**（本仓库当前内容） | ✅ 可用：克隆下来直接打开 `index.html` 就能看 |
-| **可一键安装的 DSH 插件** | 🚧 计划中：会按 `@deepseek-ai/dsh-client-ui-theme` 的令牌规范打包成 bundle |
+| **配色** | 覆盖 87 个 `--dsw-alias-*` 官方令牌，明暗两套。**不写死元素样式**，DSH 换版不会把皮肤改坏 |
+| **背景** | 春日橱窗：拱窗线稿 + 光束 + 地面 + 飘落花瓣 + 萤火 |
+| **立绘** | 流萤「春日手信」全身立绘，左侧大、右侧小（镜像） |
+| **聚光遮罩** | 中央内容列加一层柔光罩，保证文字对比度；两侧留给立绘 |
+| **设置页** | 「设置 → 春日手信」两个开关：启用皮肤、显示桌面立绘 |
 
-> ⚠️ 现在这个仓库是**视觉样板**，不是能 `dsh plugin add` 的插件。
-> 你可以拿它当配色参考、改自己的主题，或者等插件版。
+设置项（`设置 → 春日手信`）：
 
-## 快速预览
+- **启用「春日手信」皮肤** —— 总开关，关掉即完全还原
+- **显示桌面立绘** —— 只保留配色与背景，去掉人物
 
-**方式一 · 直接打开**
-
-```bash
-git clone https://github.com/kang200862/dsh-firefly-spring-skin.git
-cd dsh-firefly-spring-skin
-# 双击 index.html，或：
-start index.html          # Windows
-open  index.html          # macOS
-xdg-open index.html       # Linux
-```
-
-**方式二 · GitHub Pages**
-
-仓库设置里把 Pages 指向 `main` 分支根目录，之后访问
-`https://kang200862.github.io/dsh-firefly-spring-skin/` 即可在线看。
-（页面路径全是相对的，Pages 下能正常工作。）
-
-> 页面按 **1920×1080** 设计。窗口对不上时用浏览器缩放，或用
-> `msedge --headless=new --window-size=1920,1080 --screenshot=out.png index.html` 出图。
-
-## 文件说明
-
-| 文件 | 说明 |
-|---|---|
-| `index.html` | 样板页面，双击即可打开 |
-| `skin.css` | 全部样式与设计令牌（改配色只动这里） |
-| `skin.js` | 界面标记与原创 SVG 背景场景 |
-| `tokens.css` | 只抽出设计令牌，方便你直接抄进自己的主题 |
-| `assets/` | 人物立绘（第三方素材，见 [NOTICE.md](NOTICE.md)） |
-| `preview/` | 渲染好的预览图 |
+两个选择都记在 `localStorage`，刷新后保持。
 
 ## 配色
 
 取样自官方立绘，不是凭感觉配的：
 
-| 用途 | 令牌 | 值 | 依据 |
-|---|---|---|---|
-| 页面底 | `--canvas` | `#F2EFE3` | 宣传图的奶油米白 |
-| 面板 | `--surface` | `rgba(255,253,247,.55)` | 玻璃质感，透出背景 |
-| 春草绿（领结 / 主按钮） | `--accent` | `#7FA85C` | 立绘领结 |
-| 深春绿 | `--accent-strong` | `#5C8A4A` | |
-| 嫩芽绿（描边） | `--accent-soft` | `#CFE0BC` | |
-| 正文 | `--ink` | `#2C3A31` | |
-| 樱粉（点缀） | `--sakura` | `#E8A9B8` | 花束与花瓣 |
-| 萤火 | `--glow` | `#A9E38C` | 「流萤」的萤光 |
-| 灰格纹 | `--plaid-a/b` | `#8E9691` / `#C3C8C0` | 百褶裙 |
+| 用途 | 令牌 | 值 |
+|---|---|---|
+| 春草绿（领结 / 主按钮） | `--dsw-alias-brand-primary` | `#7FA85C` |
+| 正文 | `--dsw-alias-label-primary` | `#2C3A31` |
+| 页面底 / 面板 | `--dsw-alias-bg-base` / `-layer-*` | 半透明奶油白 |
+| 樱粉（点缀） | `--dsw-alias-markdown-tag` | `#E8A9B8` |
+| 萤火（深色强调） | `--dsw-alias-brand-primary`（dark） | `#8FE0A0` |
 
-## 自定义
+完整的令牌表在 [`src/client.js`](src/client.js) 的 `LIGHT` / `DARK` 两处。
+只想拿配色、不想装插件的，可以抄 [`tokens.css`](tokens.css)。
 
-### 换人物立绘
+## 仓库里有什么
 
-覆盖 `assets/` 里两个同名文件即可，**代码不用改**：
+| 路径 | 说明 |
+|---|---|
+| `lib/index.js` `lib/client.js` | **插件构建产物**（client.js 已内联立绘，约 300 KB） |
+| `src/host.js` `src/client.js` | 插件源码 —— 要改就改这里 |
+| `scripts/build.mjs` | 构建：`src/` → `lib/`，把立绘内联成 data URI |
+| `scripts/preview-live.mjs` | 真机验证：把插件注入正在运行的 DSH 并截图（不装插件、不碰 profile） |
+| `index.html` `skin.css` `skin.js` | **静态样板**（GitHub Pages 用），不是插件 |
+| `tokens.css` | 抽出的设计令牌 |
+| `assets/` | 人物立绘（第三方素材，见 [NOTICE.md](NOTICE.md)） |
+| `preview/` | 截图 |
 
-- `character-left.webp` —— 左侧大立绘
-- `character-right.webp` —— 右侧小立绘
+改完源码记得重新构建：
 
-透明底的 PNG / WebP 效果最好。右侧默认是左侧的镜像；如果你有**第二张不同姿势**的立绘，
-换掉 `character-right.webp`，再把 `skin.css` 里 `.char.right` 的 `transform: scaleX(-1)` 删掉。
+```bash
+node scripts/build.mjs
+```
 
-### 换配色
+## 真机验证
 
-改 `skin.css` 顶部 `:root` 那一段。三个关键项：
+不装插件也能看效果 —— 它会打开你正在运行的 DSH 页面，把 `lib/client.js` 注入进去截图：
 
-- `--surface` 的透明度决定背景透出多少
-- `--blur` 决定背景的柔焦程度（想更清晰就调小）
-- `--accent` 决定强调色
+```bash
+node scripts/preview-live.mjs "http://127.0.0.1:<port>/?token=<token>" preview/live.png 1920 1080 dark
+```
 
-### 背景
-
-`skin.js` 里的 `ART_SCENE` 是**完全原创**的 SVG（拱窗 + 窗台花箱 + 光束 + 垂藤 + 地面），
-可以随便改或整个删掉换成你自己的图。
+最后一个参数可以强制 `light` / `dark`，用来分别验证两套令牌。
 
 ## 版权与署名
 
-- **代码与原创图形**（`skin.css` / `skin.js` / 原创 SVG 场景）：MIT，见 [LICENSE](LICENSE)。
-- **`assets/` 下的人物立绘**：© HoYoverse / miHoYo，**不在 MIT 授权范围内**。
-  按官方同人指引**仅限非商业同人使用，需署名**。已在本页右下角与 [NOTICE.md](NOTICE.md) 署名。
-- 想彻底避开第三方素材：把 `assets/` 换成你自己的图，其余部分都是原创。
-  详细步骤见 [NOTICE.md](NOTICE.md)。
-
-## 路线图
-
-- [x] 视觉样板（背景 + 立绘 + 玻璃面板 + 装饰）
-- [ ] 打包成可安装的 DSH bundle（`dsh plugin add`）
-- [ ] 把配色映射到 `--dsw-alias-*` 官方令牌，而不是覆盖具体元素
-- [ ] 「设置 → 外观」里能切主题、记忆选择
-- [ ] 深色版「夜萤」
+- **代码与原创图形**（`src/` `lib/` `skin.css` `skin.js` 的原创 SVG 场景）：MIT，见 [LICENSE](LICENSE)。
+- **`assets/` 下的人物立绘**：© HoYoverse / miHoYo，**不在 MIT 授权范围内**，
+  按官方同人指引仅限非商业同人使用、需署名。详见 [NOTICE.md](NOTICE.md)，
+  里面也写了怎么一条命令把立绘换成你自己的图。
 
 ## 已知取舍
 
-- 是**静态复刻**：切不了主题、不持久化、没有动效。
+- 立绘在界面**之下**（不是压在最上层），所以它永远不会挡住按钮和文字 —— 代价是比女仆皮肤那种「立绘压在 UI 上」淡一些。
 - 右侧立绘是左侧的镜像（手上只有一张透明立绘）。
-- 背景是**柔焦**的，因为面板带了 `backdrop-filter`。
+- 立绘按视口宽高比定位，超宽屏或窄窗口下位置会变，可用设置里的开关直接关掉人物。
+- 只做了 Web 端；DSH Desktop 未实测。
+
+## 路线图
+
+- [x] 静态样板（背景 + 立绘 + 玻璃面板）
+- [x] 可安装的 DSH bundle + 设置页 + 明暗两套令牌
+- [ ] 发布到 npm
+- [ ] 提 PR 到 [awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin) 目录，让它在插件市场里能被搜到
+- [ ] 第二张不同姿势的立绘（替掉右侧镜像）
