@@ -7,6 +7,8 @@ A Firefly "Spring Missive" theme skin for the DeepSeek Harness web GUI.
 
 ![预览](preview/cover.png)
 
+> **在线预览（不用装任何东西）**：<https://kang200862.github.io/dsh-firefly-spring-skin/>
+
 ## 这是什么 / 现在能做什么
 
 形态参考了社区里最热门的
