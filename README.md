@@ -14,6 +14,9 @@ A Firefly "Spring Missive" theme skin for the DeepSeek Harness web GUI.
 ![深色模式](preview/live-dark.png)
 
 > 上图是**真实 DSH 界面**（不是效果图）—— 用无头浏览器把插件注入到运行中的 DSH 页面里截的。
+>
+> 仓库里另有一份**不装插件也能看的静态样板**：<https://kang200862.github.io/dsh-firefly-spring-skin/>
+> （`index.html` + `skin.css` + `skin.js`，是插件成型前的视觉稿）。
 
 ## 安装
 
