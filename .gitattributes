@@ -1,0 +1,8 @@
+# 规范化行尾，避免 Windows 检出把文本文件改得满屏 diff
+* text=auto eol=lf
+
+# 二进制资源
+*.png  binary
+*.webp binary
+*.jpg  binary
+*.ico  binary
